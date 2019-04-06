@@ -2,7 +2,7 @@
 {
     using Lands5.ViewModels;
 
-    public class InstanceLocator
+    class InstanceLocator
     {
         #region Properties
         public MainViewModel Main
