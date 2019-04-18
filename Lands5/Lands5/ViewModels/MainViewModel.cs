@@ -20,5 +20,7 @@ namespace Lands5.ViewModels
             this.Login = new LoginViewModel();
         }
         #endregion
+
+        
     }
 }
