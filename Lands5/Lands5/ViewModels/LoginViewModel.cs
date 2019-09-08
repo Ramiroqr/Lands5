@@ -4,17 +4,23 @@ namespace Lands5.ViewModels
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using Lands5.Views;
 
     class LoginViewModel :BaseViewModel
-    {
-        #region Attributes
+    { // para los atributos que necesitan refrescar
+        #region Attributes 
+        private string email;
         private string password;
         private bool isRunning;
         private bool isEnabled;
         #endregion
 
         #region Properties
-        public string Email { get; set; }
+        public string Email
+        {
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
+        }
         public string Password
         {
             get { return this.password; }
@@ -41,8 +47,6 @@ namespace Lands5.ViewModels
                 return new RelayCommand(Login);
             }
         }
-
-        
 
         private async void Login()
         {
@@ -76,13 +80,18 @@ namespace Lands5.ViewModels
                     "Email or password incorrect.",
                     "Accept");
                 this.Password = string.Empty;
+
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert(
-                    "Ok",
-                    "Correct.",
-                    "Accept");
+            this.IsRunning = false;
+            this.isEnabled = true;
+
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
         #endregion
 
@@ -91,6 +100,8 @@ namespace Lands5.ViewModels
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+            this.Email = "r@gmail.com";
+            this.Password = "123";
         }
         #endregion
     }

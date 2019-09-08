@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Lands5.Views.LoginPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Lands">
+    Title="Login">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
@@ -51,7 +51,6 @@
                 <ActivityIndicator
                     IsRunning="{Binding IsRunning, Mode=TwoWay}"
                     VerticalOptions="CenterAndExpand">
-
                 </ActivityIndicator>
             <StackLayout
                 Margin="10,0"
@@ -68,12 +67,12 @@
                     HorizontalOptions="End">
                 </Switch>
             </StackLayout>
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Forgot your password..."
-                    TextColor="Blue"
-                    VerticalOptions="CenterAndExpand">
-                </Label>
+            <Label
+                HorizontalOptions="Center"
+                Text="Forgot your password..."
+                TextColor="Blue"
+                VerticalOptions="CenterAndExpand">
+            </Label>
             <StackLayout
                 Margin="30,0"
                 Orientation="Horizontal"
@@ -99,18 +98,21 @@
                 </Button>
             </StackLayout>
             <StackLayout
-                HorizontalOptions="Center"
+                Margin="30,0"
                 Orientation="Horizontal"
                 VerticalOptions="EndAndExpand">
                 <Image
+                    HorizontalOptions="Start"
                     Source="facebook_logo"
                     WidthRequest="60">
                 </Image>
                 <Image
+                    HorizontalOptions="CenterAndExpand"
                     Source="twitter_logo"
                     WidthRequest="60">
                 </Image>
                 <Image
+                    HorizontalOptions="End"
                     Source="instagram_logo"
                     WidthRequest="60">
                 </Image>
