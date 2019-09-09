@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Lands.Models;
-using Lands5.Models;
-using Newtonsoft.Json;
-using Plugin.Connectivity;
-
-namespace Lands5.Services
+﻿namespace Lands5.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Lands.Models;
+    using Lands5.Models;
+    using Newtonsoft.Json;
+    using Plugin.Connectivity;
     class ApiService
     {
         public async Task<Response> CheckConnetion()
@@ -183,7 +182,7 @@ namespace Lands5.Services
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(urlBase);
                 var url = string.Format("{0}{1}", servicePrefix, controller);
-                var response = await client.GetAsync(url);
+                var response = await client.GetAsync(url);//se dispara la consulta
                 var result = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
